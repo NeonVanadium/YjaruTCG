@@ -25,6 +25,25 @@ namespace YjaruTCG
         public MainPage()
         {
             this.InitializeComponent();
+            MainFrame.Navigate(typeof(MainMenu));
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+        private void BattleButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigateAway();
+            MainFrame.Navigate(typeof(Game));
+        }
+
+        private void navigateAway()
+        {
+            BattleButton.Visibility = Visibility.Collapsed;
+            ExitButton.Visibility = Visibility.Collapsed;
+            MenuButton.Visibility = Visibility.Visible;
         }
     }
 }

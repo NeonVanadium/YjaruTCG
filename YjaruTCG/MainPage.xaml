@@ -7,7 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="MenuButtonStyle">
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,20,0,20"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+
+        <Button Name="MenuButton" Width="100" Height="100" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" FontSize="75" Content="&#xE700;" Visibility="Collapsed"/>
+
+        <Frame Name="MainFrame"/>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Name="BattleButton" Style="{StaticResource MenuButtonStyle}" Content="BATTLE" Click="BattleButton_Click"/>
+            <Button Name="ExitButton" Style="{StaticResource MenuButtonStyle}" Content="EXIT" Click="ExitButton_Click"/>
+        </StackPanel>
 
     </Grid>
 </Page>

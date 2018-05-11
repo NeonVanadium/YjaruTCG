@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="YjaruTCG.Game"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:YjaruTCG"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="DimGray">
+
+        <GridView VerticalAlignment="Center" HorizontalAlignment="Center" ItemsSource="{x:Bind p1deck}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Card">
+                    <RelativePanel>
+                        <Rectangle Name="CardRect" Width="200" Height="280" Fill="{x:Bind color}"/>
+                        <TextBlock RelativePanel.AlignTopWith="CardRect" Text="{x:Bind name}"/>
+                    </RelativePanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+    </Grid>
+</Page>
