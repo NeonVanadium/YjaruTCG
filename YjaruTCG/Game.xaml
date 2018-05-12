@@ -7,14 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="CardTextStyle">
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="DimGray">
 
         <GridView VerticalAlignment="Center" HorizontalAlignment="Center" ItemsSource="{x:Bind p1deck}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Card">
-                    <RelativePanel>
+                    <RelativePanel Width="200" Height="280">
                         <Rectangle Name="CardRect" Width="200" Height="280" Fill="{x:Bind color}"/>
-                        <TextBlock RelativePanel.AlignTopWith="CardRect" Text="{x:Bind name}"/>
+                        <TextBlock Style="{StaticResource CardTextStyle}" RelativePanel.AlignTopWith="CardRect" Text="{x:Bind name}"/>
+                        <TextBlock Style="{StaticResource CardTextStyle}" RelativePanel.AlignTopWith="CardRect" RelativePanel.AlignRightWith="CardRect" Text="{x:Bind cost}"/>
+                        <TextBlock Name="TypeBlock" Style="{StaticResource CardTextStyle}" RelativePanel.AlignVerticalCenterWith="CardRect" Text="{x:Bind type}"/>
+                        <TextBlock Style="{StaticResource CardTextStyle}" FontWeight="Normal" RelativePanel.AlignBottomWith="CardRect" RelativePanel.Below="TypeBlock" TextWrapping="WrapWholeWords" FontSize="12" Height="140" Text="{x:Bind text}"/>
                     </RelativePanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
