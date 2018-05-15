@@ -9,26 +9,29 @@
 
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="CardTextStyle">
-            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
+
+        <DataTemplate x:DataType="local:Card" x:Key="CardViewerTemplate">
+            <RelativePanel Width="{x:Bind width}" Height="{x:Bind height}">
+                <Rectangle Name="CardRect" StrokeThickness="3" Stroke="Black" Width="200" Height="280" Fill="{x:Bind color}"/>
+                <TextBlock Name="NameBlock" Style="{StaticResource CardTextStyle}" RelativePanel.AlignTopWith="CardRect" Text="{x:Bind name}"/>
+                <TextBlock Style="{StaticResource CardTextStyle}" RelativePanel.AlignTopWith="CardRect" RelativePanel.AlignRightWith="CardRect" Text="{x:Bind cost}"/>
+                <TextBlock Name="TypeBlock" Style="{StaticResource CardTextStyle}" RelativePanel.AlignVerticalCenterWith="CardRect" Text="{x:Bind type}"/>
+                <TextBlock Style="{StaticResource CardTextStyle}" FontWeight="Normal" RelativePanel.AlignBottomWith="CardRect" RelativePanel.Below="TypeBlock" TextWrapping="WrapWholeWords" FontSize="12" Height="140" Text="{x:Bind text}"/>
+                <TextBlock Style="{StaticResource CardTextStyle}" FontSize="20" RelativePanel.AlignBottomWith="CardRect" RelativePanel.AlignLeftWith="CardRect" Text="{x:Bind attack}"/>
+                <TextBlock Style="{StaticResource CardTextStyle}" FontSize="20" RelativePanel.AlignBottomWith="CardRect" RelativePanel.AlignRightWith="CardRect" Text="{x:Bind health}"/>
+                <Rectangle Height="3" Width="{x:Bind width}" Fill="Black" RelativePanel.Below="NameBlock"/>
+                <Rectangle Height="3" Width="{x:Bind width}" Fill="Black" RelativePanel.Above="TypeBlock"/>
+            </RelativePanel>
+        </DataTemplate>
+
     </Page.Resources>
     
     <Grid Background="DimGray">
 
-        <GridView VerticalAlignment="Center" HorizontalAlignment="Center" ItemsSource="{x:Bind p1deck}">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="local:Card">
-                    <RelativePanel Width="200" Height="280">
-                        <Rectangle Name="CardRect" Width="200" Height="280" Fill="{x:Bind color}"/>
-                        <TextBlock Style="{StaticResource CardTextStyle}" RelativePanel.AlignTopWith="CardRect" Text="{x:Bind name}"/>
-                        <TextBlock Style="{StaticResource CardTextStyle}" RelativePanel.AlignTopWith="CardRect" RelativePanel.AlignRightWith="CardRect" Text="{x:Bind cost}"/>
-                        <TextBlock Name="TypeBlock" Style="{StaticResource CardTextStyle}" RelativePanel.AlignVerticalCenterWith="CardRect" Text="{x:Bind type}"/>
-                        <TextBlock Style="{StaticResource CardTextStyle}" FontWeight="Normal" RelativePanel.AlignBottomWith="CardRect" RelativePanel.Below="TypeBlock" TextWrapping="WrapWholeWords" FontSize="12" Height="140" Text="{x:Bind text}"/>
-                    </RelativePanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+        <GridView VerticalAlignment="Center" HorizontalAlignment="Center" ItemsSource="{x:Bind p1deck}" ItemTemplate="{StaticResource CardViewerTemplate}"/>
 
     </Grid>
 </Page>
