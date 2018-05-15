@@ -26,7 +26,13 @@
             <Button Name="ExitButton" Style="{StaticResource MenuButtonStyle}" Content="EXIT" Click="ExitButton_Click"/>
         </StackPanel>
 
-        <Button Name="MenuButton" Width="50" Height="50" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" FontSize="50" Content="&#xE700;" Visibility="Collapsed"/>
+        <Button Name="MenuButton" Width="50" Height="50" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" FontSize="35" Content="&#xE700;" Visibility="Collapsed">
+            <Button.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Name="MenuReturnButton" Text="Return to main menu" Click="MenuReturnButton_Click"/>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
 
     </Grid>
 </Page>

@@ -8,8 +8,8 @@ namespace YjaruTCG
 {
     class Card
     {
-        public int width = 200;
-        public int height = 280;
+        public int width = 150;
+        public int height = 210;
 
         public string name { get; set; }
         public string color { get; set; }

@@ -45,5 +45,19 @@ namespace YjaruTCG
             ExitButton.Visibility = Visibility.Collapsed;
             MenuButton.Visibility = Visibility.Visible;
         }
+
+        private void navigateTo()
+        {
+
+            BattleButton.Visibility = Visibility.Visible;
+            ExitButton.Visibility = Visibility.Visible;
+            MenuButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void MenuReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(typeof(MainMenu));
+            navigateTo();
+        }
     }
 }
