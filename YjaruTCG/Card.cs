@@ -15,6 +15,7 @@ namespace YjaruTCG
         public string color { get; set; }
         public string type { get; set; }
         public string text { get; set; }
+        public string image { get; set; } = "Assets/AyanFootsoldier.png"; //path to image
         public int cost { get; set; }
         public int attack { get; set; }
         public int health { get; set; }

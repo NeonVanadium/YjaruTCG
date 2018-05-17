@@ -19,13 +19,18 @@
                 <Rectangle Name="CardRect" StrokeThickness="3" Stroke="Black" Width="{x:Bind width}" Height="{x:Bind height}" Fill="{x:Bind color}"/>
                 <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind name}" Name="NameBlock" RelativePanel.AlignTopWith="CardRect" />
                 <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind cost}" RelativePanel.AlignTopWith="CardRect" RelativePanel.AlignRightWith="CardRect" />
-                <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind type}" Name="TypeBlock" RelativePanel.Below="PictureBottomBorder" />
+                
+                <StackPanel Orientation="Vertical" Name="PictureBox" RelativePanel.Below="NameBlock">
+                    <Rectangle Height="3" Width="{x:Bind width}" Fill="Black" RelativePanel.Below="NameBlock"/>
+                    <Image Name="Art" Source="{x:Bind image}" UseLayoutRounding="True" Margin="3,0,3,0" Stretch="Fill" Height="100" RelativePanel.Above="PictureBottomBorder"/>
+                    <Rectangle Name="PictureBottomBorder" Height="3" Width="{x:Bind width}" Fill="Black" RelativePanel.AlignVerticalCenterWith="CardRect"/>
+                </StackPanel>
+
+                <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind type}" Name="TypeBlock" RelativePanel.Below="PictureBox" />
                 <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind text}" FontWeight="Normal" RelativePanel.AlignBottomWith="CardRect" RelativePanel.Below="TypeBlock" TextWrapping="WrapWholeWords" Height="140"/>
                 <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind attack}" FontSize="20" RelativePanel.AlignBottomWith="CardRect" RelativePanel.AlignLeftWith="CardRect" />
                 <TextBlock Style="{StaticResource CardTextStyle}" Text="{x:Bind health}" FontSize="20" RelativePanel.AlignBottomWith="CardRect" RelativePanel.AlignRightWith="CardRect" />
-                <Rectangle Height="3" Width="{x:Bind width}" Fill="Black" RelativePanel.Below="NameBlock"/>
-                <Rectangle Name="PictureBottomBorder" Height="3" Width="{x:Bind width}" Fill="Black" RelativePanel.AlignVerticalCenterWith="CardRect"/>
-                <TextBlock Style="{StaticResource CardTextStyle}" FontWeight="Light" RelativePanel.Above="PictureBottomBorder" RelativePanel.AlignHorizontalCenterWith="CardRect" Name="PlaceholderPictureText" Width="{x:Bind width}" Text="IMAGE PLACEHOLDER"/>
+
             </RelativePanel>
         </DataTemplate>
 

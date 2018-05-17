@@ -25,7 +25,7 @@ namespace YjaruTCG
             if(player == 2)
             {
 
-                Card ayanFootsoldier = new Card { name = "Ayan Footsoldier", cost = 1, type = "Character", attack = 2, health = 2, legendary = false, color = "LightBlue", text = "Though the country's glory days are long in the past, the Ayans' stalwart devotion to their country remains firm." };
+                Card ayanFootsoldier = new Card { name = "Ayan Footsoldier", image="Assets/AyanFootsoldier.png", cost = 1, type = "Character", attack = 2, health = 2, legendary = false, color = "LightBlue", text = "Though the country's glory days are long in the past, the Ayans' stalwart devotion to their country remains firm." };
 
                 for(int i = 0; i < 7; i++)
                 {
